@@ -30,17 +30,15 @@ namespace Baba
         {
             if (!waitForKeyRelease)
             {
-                // Arrow keys to navigate the menu
-                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
                 {
                     if ((int)currentSelection < 3)
                     {
                         currentSelection++;
                     }
                     waitForKeyRelease = true;
-
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up))
                 {
                     if ((int)currentSelection > 0)
                     {
@@ -50,27 +48,26 @@ namespace Baba
                 }
 
                 // If enter is pressed, return the appropriate new state
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && currentSelection == MenuState.NewGame)
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
                     waitForKeyRelease = true;
-                    return GameStateEnum.LevelSelect;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && currentSelection == MenuState.Controls)
-                {
-                    waitForKeyRelease = true;
-                    return GameStateEnum.Controls;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && currentSelection == MenuState.About)
-                {
-                    waitForKeyRelease = true;
-                    return GameStateEnum.About;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && currentSelection == MenuState.Quit)
-                {
-                    return GameStateEnum.Exit;
+                    switch (currentSelection)
+                    {
+                        case MenuState.NewGame:
+                            return GameStateEnum.LevelSelect;
+                        case MenuState.Controls:
+                            return GameStateEnum.Controls;
+                        case MenuState.About:
+                            return GameStateEnum.About;
+                        case MenuState.Quit:
+                            return GameStateEnum.Exit;
+                        default: // This should be unreachable, but exit just in case
+                            return GameStateEnum.Exit;
+                    }
                 }
             }
-            else if (Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.Enter))
+            else if (Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.Enter) &&
+                Keyboard.GetState().IsKeyUp(Keys.Down) && Keyboard.GetState().IsKeyUp(Keys.Up))
             {
                 waitForKeyRelease = false;
             }

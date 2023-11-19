@@ -22,32 +22,32 @@ namespace Baba
         {
             if (!waitForKeyRelease)
             {
-                // Arrow keys to navigate the menu
-                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
                 {
                     waitForKeyRelease = true;
                     LevelManager.Instance.AddCurrentLevelIndex();
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up))
                 {
                     waitForKeyRelease = true;
                     LevelManager.Instance.SubtractCurrentLevelIndex();
                 }
 
                 // If enter is pressed, return the appropriate new state
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter) || Keyboard.GetState().IsKeyDown(Keys.Right))
                 {
                     waitForKeyRelease = true;
                     return GameStateEnum.GamePlay;
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                if (Keyboard.GetState().IsKeyDown(Keys.Escape) || Keyboard.GetState().IsKeyDown(Keys.Left))
                 {
                     waitForKeyRelease = true;
                     LevelManager.Instance.ResetCurrentLevelIndex();
                     return GameStateEnum.MainMenu;
                 }
             }
-            else if (Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.Enter))
+            else if (Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.Enter) &&
+                Keyboard.GetState().IsKeyUp(Keys.Down) && Keyboard.GetState().IsKeyUp(Keys.Up))
             {
                 waitForKeyRelease = false;
             }
