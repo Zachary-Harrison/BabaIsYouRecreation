@@ -10,7 +10,7 @@
 
 1. Clone the repository
    ```bash
-   https://github.com/Zachary-Harrison/BabaIsYouRecreation.git
+   git clone https://github.com/Zachary-Harrison/BabaIsYouRecreation.git
    ```
 2. Run the executable!
    ```bash
