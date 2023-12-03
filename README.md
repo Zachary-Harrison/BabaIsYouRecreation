@@ -12,11 +12,16 @@
    ```bash
    git clone https://github.com/Zachary-Harrison/BabaIsYouRecreation.git
    ```
-2. Run the executable!
+2. `cd` into the appropriate directory
    ```bash
    cd BabaIsYouRecreation/Engine/bin/Release/net6.0/
+   ```
+3. Run the executable!
+   ```bash
     ./Engine.exe
    ```
+
+
 
 ## Controls
 
