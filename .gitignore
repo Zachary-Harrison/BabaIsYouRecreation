@@ -30,8 +30,8 @@
 *.sdf
 ipch/
 obj/
-[Bb]in/*
-[Dd]ebug*/
+[Bb]in*/*
+[Dd]ebug*/*
 [Rr]elease*/*
 Ankh.NoLoad
 
@@ -59,5 +59,4 @@ monodroid*.msi
 *.dll
 
 # Zach's additions: actually do include the executable
-Engine/bin/Release/net6.0/*
-!Engine/bin/Release/net6.0/Engine.exe
+!Engine/bin/Release/net6.0/*

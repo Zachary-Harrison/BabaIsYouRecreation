@@ -8,7 +8,15 @@
 
 ## Quickstart
 
-Download and run the [Application](Engine/bin/Release/net6.0/Engine.exe). This should work on Windows, MacOS, and Linux machines. If you have a problem, make an issue and it can be resolved accordingly. 
+1. Clone the repository
+   ```bash
+   https://github.com/Zachary-Harrison/BabaIsYouRecreation.git
+   ```
+2. Run the executable!
+   ```bash
+   cd BabaIsYouRecreation/Engine/bin/Release/net6.0/
+    ./Engine.exe
+   ```
 
 ## Controls
 
