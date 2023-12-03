@@ -12,7 +12,7 @@ Installers/Linux/tmp_run/
 *.pidb
 *.userprefs
 *.[Oo]bj
-*.exe
+**/*.exe
 *.pdb
 *.user
 *.aps
@@ -91,7 +91,8 @@ IDE/MonoDevelop/MonoDevelop.MonoGame/templates/Common/MonoGame.Framework.dll.con
 # docfx
 _*
 
-# Zach's additions: actually do include the executable
+# Zach's additions: actually do include the executable and related files
 !Engine/bin/
 !Engine/bin/Release/
 !Engine/bin/Release/net6.0/
+!Engine/bin/Release/net6.0/Engine.exe
